@@ -74,9 +74,14 @@ class Reader(torch.nn.Module):
             self.tokenizer.padding_side = "left"
     
     def forward(self, input_ids, attention_mask):
-        outputs = self.model.generate(input_ids=input_ids.to(self.model.device), attention_mask=attention_mask.to(self.model.device), **self.generate_kwargs)
-        preds = self.tokenizer.batch_decode(outputs.sequences, skip_special_tokens=True)
-        return preds
+        outputs = self.model.generate(
+            input_ids=input_ids.to(self.model.device),
+            attention_mask=attention_mask.to(self.model.device),
+            **self.generate_kwargs,
+        )
+        generated_ids = outputs.sequences[:, input_ids.shape[-1]:]
+        preds = self.tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
+        return [pred.strip() for pred in preds]
     
     # def get_loss(self, input_ids, attention_mask):
 
