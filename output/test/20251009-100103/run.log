@@ -1,0 +1,42 @@
+[10/09/2025 10:01:03] {util.py:62} INFO - Log Set
+[10/09/2025 10:01:03] {attack.py:25} INFO - 
+                              batch_size: 16                                      
+                              corpus_dir: ./data/psgs_w100.tsv                    
+                          crossover_prob: 0.2                                     
+                                data_dir: ./data/ODQA/dpr/demo-test_100.json      	[default: ./data/{task}/{retriever}/{dataset}-{split}_100.json]
+                                 dataset: nq                                      
+                                    gpus: 2                                       
+                                is_black: False                                   
+                              is_genetic: True                                    	[default: False]
+                              is_hotflip: False                                   
+                                 is_save: False                                   
+                                 is_vllm: False                                   
+                               max_iters: 5                                       
+                          max_new_tokens: 30                                      
+                                  method: typo                                    
+                               model_dir: /mnt/d/GA-RAG/models                    	[default: ../models]
+                           mutation_prob: 0.4                                     
+                                    name: test                                    
+                               not_cross: False                                   
+                                 not_mut: False                                   
+                                not_sort: False                                   
+                             num_workers: 5                                       
+                              output_dir: ./output/test/20251009-100103           	[default: ./output/{name}/{t}]
+                             parents_num: 10                                      
+                       passage_maxlength: 512                                     
+                                per_prob: 0.2                                     
+                      perturbation_level: 0.2                                     
+                                  reader: Llama-7b                                
+                          reader_penalty: 1.0                                     
+                               retriever: dpr                                     
+                       retriever_penalty: 1.1                                     
+                                   split: test                                    
+                                    task: ODQA                                    
+                            template_dir: ./data/template/Llama.json              	[default: ./data/template/{reader}.json]
+                               threshold: 0.95                                    
+             transformations_per_example: 100                                     
+                           with_wordswap: False                                   
+
+[10/09/2025 10:01:03] {attack.py:26} INFO - The name of experiment is test
+[10/09/2025 10:01:03] {attack.py:27} INFO - Attack type is typo
+[10/09/2025 10:01:05] {modeling.py:799} INFO - We will use 90% of the memory on device 0 for storing the model, and 10% for the buffer to avoid OOM. You can set `max_memory` in to a higher value to use more memory (at your own risk).
